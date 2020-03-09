@@ -1,6 +1,5 @@
 function out = tang_fcg_pod_glm_v3(varargin)
 % TANG_FCG_POD_GLM_V3 calculates POD using generalized linear model.
-% F4SB_POD_GLM calculates POD using generalized linear model.
 %
 % Input: 'inspID' - inspector ID [1] (optional)
 %        'aData' - crack size vector [NaN] (optional)
@@ -83,6 +82,11 @@ if isnan(aData)
     % 'aData' is estimated from 'GetSpecimenRefData.m'.
     aData = exp((log(mean(data(:, 3:end), 2)) - p2)/p1);
 else
+    % Make sure that input vectors are columnar.
+    aData = aData(:);
+    ahatData = ahatData(:);
+    
+    % Get index for noise data.
     idxNoise = ahatData <= ampNoise;
 end
 
