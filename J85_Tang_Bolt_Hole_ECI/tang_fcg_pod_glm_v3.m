@@ -76,7 +76,7 @@ end
 % Data --------------------------------------------------------------------
 % Read data.
 if isnan(aData)
-    data = csvread('raw_data/j85_tang_round_robin_test.csv', 1);
+    data = csvread('j85_tang_round_robin_test.csv', 1);
     ahatData = data(:, idxInsp+2);
     idxNoise = ~data(:, 2);
     
